@@ -1,11 +1,13 @@
 import React from "react";
 
-function Task() {
+function Task(item, id, category) {
   return (
-    <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+    <div className="task" key={id}>
+      <div className="label">{category}</div>
+      <div className="text">{item.text}</div>
+      <button className="delete" onClick = {e=>{
+        e.target.parentNode.remove()
+        }}>X</button>
     </div>
   );
 }

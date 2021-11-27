@@ -1,9 +1,21 @@
 import React from "react";
 
-function TaskList() {
+function TaskList({tasks, func, categories}) {
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {tasks.map(e=>{
+        let id = "b"
+        for(let key in tasks){
+          if(tasks[key] === e){
+            id = key;
+          }
+        }
+        const b = categories.find(z =>{
+          return z === e.category
+        })
+          return func(e, id, b)
+
+      })}
     </div>
   );
 }
